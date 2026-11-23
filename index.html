@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jennifer Haha ✨ Space Profile</title>
+
+  <!-- Google Fonts: Fredoka & Nunito untuk tipografi membulat dan ceria -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Fredoka', 'sans-serif'],
+            body: ['Nunito', 'sans-serif'],
+          },
+          colors: {
+            cosmic: {
+              dark: '#1b1642',
+              mid: '#2d2468',
+              soft: '#43348c',
+              pink: '#ff9ecd',
+              yellow: '#ffe169',
+              sky: '#8be9fd',
+              mint: '#8ef6d0',
+              cream: '#fffdf7',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ==========================================================================
+       1. BASE & COSMIC BACKGROUND
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: radial-gradient(circle at 20% 20%, #3b2d82 0%, #241b57 45%, #151036 100%);
+      color: #2d2468;
+      min-height: 100vh;
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    /* ==========================================================================
+       2. CLAYMORPHISM / 3D CUTE CARTOON EFFECTS
+       ========================================================================== */
+    .clay-card {
+      background: linear-gradient(145deg, #ffffff 0%, #fff9f0 100%);
+      border-radius: 32px;
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      box-shadow:
+        0 20px 40px rgba(15, 10, 48, 0.38),
+        inset 0 -10px 18px rgba(168, 152, 232, 0.28),
+        inset 0 8px 14px rgba(255, 255, 255, 0.95);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+    }
+
+    .clay-card-hover:hover {
+      transform: translateY(-8px) scale(1.015);
+      box-shadow:
+        0 26px 48px rgba(15, 10, 48, 0.45),
+        inset 0 -10px 18px rgba(168, 152, 232, 0.32),
+        inset 0 8px 14px rgba(255, 255, 255, 0.98);
+    }
+
+    .clay-pill {
+      background: rgba(255, 253, 247, 0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 9999px;
+      border: 3px solid rgba(255, 255, 255, 0.95);
+      box-shadow:
+        0 14px 30px rgba(14, 10, 46, 0.35),
+        inset 0 -6px 12px rgba(154, 138, 224, 0.28),
+        inset 0 5px 10px rgba(255, 255, 255, 0.9);
+    }
+
+    .clay-btn {
+      font-family: 'Fredoka', sans-serif;
+      border-radius: 22px;
+      border: 3px solid rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .clay-btn:hover:not(:disabled) {
+      transform: translateY(-5px) scale(1.04);
+    }
+
+    .clay-btn:active:not(:disabled) {
+      transform: translateY(2px) scale(0.96);
+    }
+
+    .clay-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .clay-btn-yellow {
+      background: linear-gradient(145deg, #fff08a 0%, #ffd43b 100%);
+      color: #4a2e00;
+      box-shadow:
+        0 10px 20px rgba(255, 200, 40, 0.38),
+        inset 0 -6px 10px rgba(217, 132, 0, 0.35),
+        inset 0 6px 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .clay-btn-pink {
+      background: linear-gradient(145deg, #ffc2e2 0%, #ff7eb9 100%);
+      color: #5c0c37;
+      box-shadow:
+        0 10px 20px rgba(255, 118, 182, 0.38),
+        inset 0 -6px 10px rgba(196, 48, 118, 0.32),
+        inset 0 6px 10px rgba(255, 255, 255, 0.78);
+    }
+
+    .clay-btn-sky {
+      background: linear-gradient(145deg, #b5f3ff 0%, #56ccf2 100%);
+      color: #0b3c5d;
+      box-shadow:
+        0 10px 20px rgba(86, 204, 242, 0.38),
+        inset 0 -6px 10px rgba(20, 128, 179, 0.32),
+        inset 0 6px 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .clay-btn-mint {
+      background: linear-gradient(145deg, #bdfce4 0%, #52e5a8 100%);
+      color: #09452d;
+      box-shadow:
+        0 10px 20px rgba(82, 229, 168, 0.35),
+        inset 0 -6px 10px rgba(16, 148, 95, 0.32),
+        inset 0 6px 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .clay-btn-purple {
+      background: linear-gradient(145deg, #d8c7ff 0%, #a584ff 100%);
+      color: #2c1469;
+      box-shadow:
+        0 10px 20px rgba(165, 132, 255, 0.4),
+        inset 0 -6px 10px rgba(96, 62, 194, 0.34),
+        inset 0 6px 10px rgba(255, 255, 255, 0.78);
+    }
+
+    /* Nav button active state */
+    .nav-btn {
+      font-family: 'Fredoka', sans-serif;
+      border-radius: 9999px;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(145deg, #ffe570 0%, #ffc93c 100%);
+      color: #4a2e00;
+      box-shadow:
+        0 6px 14px rgba(255, 201, 60, 0.45),
+        inset 0 -4px 6px rgba(209, 126, 0, 0.28),
+        inset 0 4px 6px rgba(255, 255, 255, 0.85);
+      transform: scale(1.06);
+    }
+
+    /* ==========================================================================
+       3. SPACE ANIMATIONS (STARS, PLANETS, FLOATING ASTRONAUT)
+       ========================================================================== */
+    .star-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .twinkle-star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff9c4;
+      box-shadow: 0 0 10px 2px rgba(255, 241, 150, 0.75);
+      animation: twinkle var(--dur, 3s) ease-in-out infinite alternate;
+      animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.25; transform: scale(0.75); }
+      100% { opacity: 1; transform: scale(1.25); }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-16px) rotate(3deg); }
+    }
+
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px) rotate(2deg); }
+      50% { transform: translateY(14px) rotate(-3deg); }
+    }
+
+    .animate-float {
+      animation: floatSlow 5.2s ease-in-out infinite;
+    }
+
+    .animate-float-reverse {
+      animation: floatReverse 6.5s ease-in-out infinite;
+    }
+
+    /* SPA Page Transition */
+    .spa-page {
+      display: none;
+      animation: pagePopIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    .spa-page.active {
+      display: block;
+    }
+
+    @keyframes pagePopIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Astronaut helmet frame for Profile photo */
+    .helmet-frame {
+      background: linear-gradient(145deg, #ffffff 0%, #e0e7ff 100%);
+      border-radius: 50%;
+      padding: 14px;
+      box-shadow:
+        0 20px 38px rgba(15, 10, 48, 0.32),
+        inset 0 -10px 18px rgba(139, 127, 224, 0.35),
+        inset 0 8px 14px rgba(255, 255, 255, 0.95);
+      position: relative;
+    }
+
+    /* ==========================================================================
+       4. MONOPOLI WNI SIMULATOR BOARD STYLING
+       ========================================================================== */
+    .monopoly-board {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-rows: repeat(5, minmax(74px, auto));
+      gap: 6px;
+      background: linear-gradient(145deg, #322670 0%, #241b57 100%);
+      padding: 10px;
+      border-radius: 28px;
+      border: 4px solid rgba(255, 255, 255, 0.85);
+      box-shadow:
+        0 20px 40px rgba(12, 8, 38, 0.5),
+        inset 0 6px 14px rgba(255, 255, 255, 0.16);
+    }
+
+    @media (min-width: 640px) {
+      .monopoly-board {
+        grid-template-rows: repeat(5, minmax(96px, auto));
+        gap: 8px;
+        padding: 14px;
+      }
+    }
+
+    .board-tile {
+      border-radius: 16px;
+      padding: 6px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      position: relative;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow:
+        0 6px 12px rgba(15, 10, 48, 0.25),
+        inset 0 -5px 8px rgba(0, 0, 0, 0.1),
+        inset 0 4px 6px rgba(255, 255, 255, 0.75);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      overflow: hidden;
+    }
+
+    .board-tile.tile-highlight {
+      transform: scale(1.06);
+      z-index: 10;
+      box-shadow:
+        0 0 0 4px #ffe169,
+        0 10px 22px rgba(255, 225, 105, 0.65);
+    }
+
+    .board-center {
+      grid-column: 2 / 5;
+      grid-row: 2 / 5;
+      background: linear-gradient(145deg, #fffdf7 0%, #f3eeff 100%);
+      border-radius: 22px;
+      border: 3px solid rgba(255, 255, 255, 0.95);
+      box-shadow:
+        inset 0 -8px 16px rgba(154, 138, 224, 0.25),
+        inset 0 6px 12px rgba(255, 255, 255, 0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Pawn tokens */
+    .pawn-container {
+      display: flex;
+      gap: 3px;
+      justify-content: center;
+      align-items: center;
+      min-height: 24px;
+      margin-top: 2px;
+    }
+
+    .pawn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      border: 2px solid #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+      animation: pawnBounce 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @media (min-width: 640px) {
+      .pawn {
+        width: 28px;
+        height: 28px;
+        font-size: 15px;
+      }
+    }
+
+    .pawn-player {
+      background: linear-gradient(145deg, #ff9ecd 0%, #ff5ca8 100%);
+    }
+
+    .pawn-bot {
+      background: linear-gradient(145deg, #8be9fd 0%, #34b3f1 100%);
+    }
+
+    @keyframes pawnBounce {
+      0% { transform: scale(0.4) translateY(-10px); }
+      70% { transform: scale(1.2) translateY(0); }
+      100% { transform: scale(1) translateY(0); }
+    }
+
+    /* 3D Dice Box */
+    .dice-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #ffffff 0%, #fef08a 100%);
+      border: 3px solid #ffffff;
+      box-shadow:
+        0 10px 20px rgba(45, 36, 104, 0.25),
+        inset 0 -6px 10px rgba(217, 160, 0, 0.28),
+        inset 0 5px 8px rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      color: #2d2468;
+      transition: transform 0.2s ease;
+    }
+
+    .dice-rolling {
+      animation: diceSpin 0.16s linear infinite;
+    }
+
+    @keyframes diceSpin {
+      0% { transform: rotate(0deg) scale(1.08); }
+      25% { transform: rotate(16deg) scale(0.95); }
+      50% { transform: rotate(-16deg) scale(1.12); }
+      75% { transform: rotate(10deg) scale(0.96); }
+      100% { transform: rotate(0deg) scale(1.08); }
+    }
+
+    /* Custom Scrollbar for Event Log */
+    .custom-scroll::-webkit-scrollbar {
+      width: 7px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(165, 132, 255, 0.12);
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(165, 132, 255, 0.55);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="relative antialiased selection:bg-pink-300 selection:text-indigo-950">
+
+  <!-- ========================================================================
+       LATAR BELAKANG LUAR ANGKASA (BINTANG BERKELIP & PLANET PASTEL)
+       ======================================================================== -->
+  <div class="star-bg" id="starField" aria-hidden="true">
+    <!-- Planet Pastel Kiri Atas -->
+    <svg class="absolute -top-10 -left-10 w-44 sm:w-64 opacity-80 animate-float" viewBox="0 0 220 220" fill="none">
+      <defs>
+        <radialGradient id="planetPink" cx="35%" cy="30%" r="65%">
+          <stop offset="0%" stop-color="#ffd6ec" />
+          <stop offset="60%" stop-color="#ff9ecd" />
+          <stop offset="100%" stop-color="#d966a3" />
+        </radialGradient>
+      </defs>
+      <circle cx="110" cy="110" r="64" fill="url(#planetPink)" />
+      <ellipse cx="110" cy="115" rx="98" ry="24" stroke="#ffe169" stroke-width="10" stroke-linecap="round" transform="rotate(-18 110 115)" opacity="0.85" />
+      <circle cx="88" cy="92" r="10" fill="#ffffff" opacity="0.35" />
+    </svg>
+
+    <!-- Planet Pastel Kanan Bawah -->
+    <svg class="absolute bottom-4 -right-12 w-48 sm:w-72 opacity-75 animate-float-reverse" viewBox="0 0 220 220" fill="none">
+      <defs>
+        <radialGradient id="planetSky" cx="30%" cy="30%" r="70%">
+          <stop offset="0%" stop-color="#d6f8ff" />
+          <stop offset="55%" stop-color="#7dd3fc" />
+          <stop offset="100%" stop-color="#38bdf8" />
+        </radialGradient>
+      </defs>
+      <circle cx="110" cy="110" r="72" fill="url(#planetSky)" />
+      <circle cx="82" cy="86" r="14" fill="#ffffff" opacity="0.4" />
+      <circle cx="136" cy="132" r="18" fill="#0284c7" opacity="0.18" />
+      <circle cx="138" cy="76" r="8" fill="#0284c7" opacity="0.16" />
+    </svg>
+
+    <!-- Awan Kosmik Pastel -->
+    <svg class="absolute top-1/3 -right-8 w-40 opacity-30 animate-float" viewBox="0 0 200 110" fill="none">
+      <path d="M40 90H160C179 90 192 77 192 60C192 44 179 31 163 30C156 14 140 4 120 4C98 4 80 18 74 37C70 35 65 34 60 34C38 34 20 50 20 70C20 81 29 90 40 90Z" fill="#f9a8d4" />
+    </svg>
+  </div>
+
+  <!-- ========================================================================
+       FLOATING NAVBAR (RESPONSIF UNTUK 4 HALAMAN SPA)
+       ======================================================================== -->
+  <header class="fixed top-4 left-0 right-0 z-50 px-3 sm:px-6 flex justify-center pointer-events-none">
+    <nav class="clay-pill pointer-events-auto px-2 py-2 sm:px-4 sm:py-2.5 flex items-center gap-1 sm:gap-2 max-w-full overflow-x-auto" aria-label="Navigasi Utama">
+      <button onclick="navigateTo('home')" data-page="home" class="nav-btn active px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm md:text-base font-bold text-indigo-900 whitespace-nowrap flex items-center gap-1.5">
+        <span>🌟</span><span>Beranda</span>
+      </button>
+      <button onclick="navigateTo('profil')" data-page="profil" class="nav-btn px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm md:text-base font-bold text-indigo-900 hover:bg-indigo-100/70 whitespace-nowrap flex items-center gap-1.5">
+        <span>👩‍🚀</span><span>Profil</span>
+      </button>
+      <button onclick="navigateTo('galeri')" data-page="galeri" class="nav-btn px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm md:text-base font-bold text-indigo-900 hover:bg-indigo-100/70 whitespace-nowrap flex items-center gap-1.5">
+        <span>🎨</span><span>Galeri Karya</span>
+      </button>
+      <button onclick="navigateTo('game')" data-page="game" class="nav-btn px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm md:text-base font-bold text-indigo-900 hover:bg-indigo-100/70 whitespace-nowrap flex items-center gap-1.5">
+        <span>🎲</span><span>Mini Game</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ========================================================================
+       MAIN CONTAINER (SPA PAGES)
+       ======================================================================== -->
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 min-h-screen flex flex-col justify-center">
+
+    <!-- ======================================================================
+         HALAMAN 1: BERANDA (HOME)
+         ====================================================================== -->
+    <section id="page-home" class="spa-page active">
+      <div class="clay-card p-6 sm:p-10 md:p-12 relative overflow-hidden">
+        <!-- Dekorasi sudut kartu -->
+        <div class="absolute -top-6 -right-6 w-28 h-28 rounded-full bg-yellow-200/60 blur-xl pointer-events-none"></div>
+        <div class="absolute -bottom-8 -left-8 w-36 h-36 rounded-full bg-pink-200/50 blur-xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          <!-- Kolom Teks Sambutan -->
+          <div class="lg:col-span-7 text-center lg:text-left space-y-5">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-800 font-bold text-xs sm:text-sm shadow-inner">
+              <span>🚀</span>
+              <span>Selamat datang di Galaksi Kecil Jennifer!</span>
+            </div>
+
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-indigo-950 drop-shadow-sm">
+              Good morning <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-pink-500 to-indigo-600">sunshine!!</span> ☀️
+            </h1>
+
+            <p class="text-base sm:text-lg text-indigo-900/80 font-semibold leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Ayo meluncur melintasi bintang-bintang pastel, kenalan lebih dekat dengan aku, lihat kegiatan favoritku, dan coba keseruan bertahan hidup di <strong>Monopoli WNI Simulator</strong>!
+            </p>
+
+            <!-- Tombol Navigasi 3D Mencolok -->
+            <div class="pt-3 flex flex-wrap justify-center lg:justify-start gap-3.5 sm:gap-4">
+              <button onclick="navigateTo('profil')" class="clay-btn clay-btn-pink px-6 py-3.5 text-base sm:text-lg font-bold">
+                <span>👩‍🚀</span>
+                <span>Lihat Profil</span>
+              </button>
+              <button onclick="navigateTo('galeri')" class="clay-btn clay-btn-sky px-6 py-3.5 text-base sm:text-lg font-bold">
+                <span>✨</span>
+                <span>Galeri Karya</span>
+              </button>
+              <button onclick="navigateTo('game')" class="clay-btn clay-btn-yellow px-6 py-3.5 text-base sm:text-lg font-bold">
+                <span>🎲</span>
+                <span>Main Mini Game</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Kolom Ilustrasi Astronot 3D Cute SVG Melayang -->
+          <div class="lg:col-span-5 flex justify-center items-center">
+            <div class="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center">
+              <!-- Lingkaran Aura Bintang -->
+              <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-indigo-200 via-pink-100 to-yellow-100 shadow-inner opacity-90"></div>
+
+              <!-- SVG Astronot Imut Melayang -->
+              <svg class="w-56 h-56 sm:w-72 sm:h-72 animate-float relative z-10 drop-shadow-2xl" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="suitGrad" x1="60" y1="60" x2="200" y2="220" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="100%" stop-color="#dbeafe" />
+                  </linearGradient>
+                  <linearGradient id="visorGrad" x1="85" y1="68" x2="175" y2="132" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#4338ca" />
+                    <stop offset="60%" stop-color="#2e1065" />
+                    <stop offset="100%" stop-color="#1e1b4b" />
+                  </linearGradient>
+                  <linearGradient id="starGrad" x1="185" y1="30" x2="230" y2="75" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#fff08a" />
+                    <stop offset="100%" stop-color="#fbbf24" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Bintang-bintang kecil melayang -->
+                <path d="M210 30L215 44L230 48L216 54L212 68L205 55L190 50L204 44L210 30Z" fill="url(#starGrad)" />
+                <circle cx="46" cy="64" r="7" fill="#ff9ecd" />
+                <circle cx="218" cy="182" r="9" fill="#8be9fd" />
+                <circle cx="38" cy="186" r="5" fill="#ffe169" />
+
+                <!-- Ransel Jetpack -->
+                <rect x="70" y="128" width="120" height="72" rx="26" fill="#ff9ecd" stroke="#ffffff" stroke-width="5" />
+
+                <!-- Kaki Kiri & Kanan -->
+                <rect x="86" y="182" width="34" height="46" rx="17" fill="url(#suitGrad)" stroke="#c7d2fe" stroke-width="4" />
+                <rect x="140" y="182" width="34" height="46" rx="17" fill="url(#suitGrad)" stroke="#c7d2fe" stroke-width="4" />
+                <!-- Sepatu Pastel -->
+                <rect x="83" y="210" width="40" height="22" rx="11" fill="#ffe169" />
+                <rect x="137" y="210" width="40" height="22" rx="11" fill="#ffe169" />
+
+                <!-- Badan Astronot -->
+                <rect x="80" y="124" width="100" height="76" rx="34" fill="url(#suitGrad)" stroke="#c7d2fe" stroke-width="4" />
+                <!-- Panel Dada Imut -->
+                <rect x="104" y="146" width="52" height="30" rx="12" fill="#e0e7ff" stroke="#ffffff" stroke-width="3" />
+                <circle cx="118" cy="161" r="5" fill="#ff7eb9" />
+                <circle cx="132" cy="161" r="5" fill="#ffe169" />
+                <circle cx="146" cy="161" r="5" fill="#52e5a8" />
+
+                <!-- Tangan Kiri (Melambai) -->
+                <path d="M84 148C62 142 50 124 56 106" stroke="#ffffff" stroke-width="24" stroke-linecap="round" />
+                <circle cx="56" cy="105" r="13" fill="#ff9ecd" />
+
+                <!-- Tangan Kanan (Memegang Bintang) -->
+                <path d="M176 148C196 154 204 168 196 180" stroke="#ffffff" stroke-width="24" stroke-linecap="round" />
+                <circle cx="196" cy="180" r="13" fill="#ff9ecd" />
+
+                <!-- Antena Helm -->
+                <line x1="130" y1="36" x2="130" y2="54" stroke="#a5b4fc" stroke-width="6" stroke-linecap="round" />
+                <circle cx="130" cy="30" r="9" fill="#ffe169" stroke="#ffffff" stroke-width="3" />
+
+                <!-- Helm Bulat 3D -->
+                <circle cx="130" cy="96" r="52" fill="url(#suitGrad)" stroke="#c7d2fe" stroke-width="5" />
+                <!-- Visor Kaca -->
+                <rect x="90" y="68" width="80" height="54" rx="26" fill="url(#visorGrad)" stroke="#818cf8" stroke-width="4" />
+                <!-- Kilau Visor -->
+                <ellipse cx="108" cy="82" rx="10" ry="5" fill="#ffffff" opacity="0.45" transform="rotate(-20 108 82)" />
+                <!-- Mata & Senyum Imut di Dalam Visor -->
+                <circle cx="112" cy="96" r="5.5" fill="#ffe169" />
+                <circle cx="148" cy="96" r="5.5" fill="#ffe169" />
+                <circle cx="110" cy="94" r="2" fill="#ffffff" />
+                <circle cx="146" cy="94" r="2" fill="#ffffff" />
+                <ellipse cx="102" cy="104" rx="5.5" ry="3" fill="#ff9ecd" opacity="0.8" />
+                <ellipse cx="158" cy="104" rx="5.5" ry="3" fill="#ff9ecd" opacity="0.8" />
+                <path d="M122 103C126 109 134 109 138 103" stroke="#ffe169" stroke-width="3.5" stroke-linecap="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         HALAMAN 2: PROFIL DIRI
+         ====================================================================== -->
+    <section id="page-profil" class="spa-page">
+      <div class="text-center mb-8">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-pink-200/90 text-pink-900 font-bold text-xs sm:text-sm mb-3 shadow">
+          ⭐ Kartu Identitas Astronot
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold text-white drop-shadow-md">
+          Profil Diri 👩‍🚀
+        </h2>
+      </div>
+
+      <div class="clay-card p-6 sm:p-10 max-w-4xl mx-auto relative overflow-hidden">
+        <!-- Stiker Dekoratif -->
+        <div class="hidden sm:flex absolute top-6 right-6 gap-2">
+          <span class="px-3 py-1 rounded-full bg-yellow-200 text-amber-900 font-bold text-xs shadow-sm">🎮 Gamer</span>
+          <span class="px-3 py-1 rounded-full bg-sky-200 text-sky-900 font-bold text-xs shadow-sm">📚 Calon Guru</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <!-- Slot Foto Profil dalam Bingkai Astronot 3D -->
+          <div class="md:col-span-5 flex flex-col items-center">
+            <div class="helmet-frame w-52 h-52 sm:w-60 sm:h-60 flex items-center justify-center">
+              <!-- Telinga Helm Kiri & Kanan -->
+              <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-5 h-14 rounded-full bg-pink-300 border-2 border-white shadow"></div>
+              <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-5 h-14 rounded-full bg-pink-300 border-2 border-white shadow"></div>
+              <!-- Bintang Mini di Atas Bingkai -->
+              <div class="absolute -top-4 right-8 text-3xl drop-shadow">⭐</div>
+
+              <div class="w-full h-full rounded-full overflow-hidden border-4 border-indigo-200 relative bg-slate-200 shadow-inner">
+                <!-- GANTI FOTO: Letakkan file foto-profil.jpg di folder yang sama dengan index.html -->
+                <img
+                  src="foto-profil.jpg"
+                  alt="Foto Profil Jennifer Haha"
+                  class="w-full h-full object-cover"
+                  onerror="handleImageFallback(this)"
+                />
+                <!-- Fallback Otomatis jika foto-profil.jpg belum ditambahkan -->
+                <div class="photo-fallback hidden w-full h-full bg-[#d1d5db] text-slate-600 flex flex-col items-center justify-center text-center p-4 font-bold text-sm">
+                  <span class="text-2xl mb-1">📷</span>
+                  <span>Foto belum ditambahkan</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-yellow-200 to-pink-200 text-indigo-950 font-bold text-sm shadow">
+              <span>✨</span>
+              <span>Space Explorer Lv. 99</span>
+            </div>
+          </div>
+
+          <!-- Kartu Biodata Rapi -->
+          <div class="md:col-span-7 space-y-4">
+            <div class="bg-indigo-50/80 rounded-3xl p-5 border-2 border-white shadow-inner space-y-4">
+              <!-- Item: Nama -->
+              <div class="flex items-center gap-4 bg-white rounded-2xl p-3.5 shadow-sm border border-indigo-100">
+                <div class="w-12 h-12 rounded-2xl bg-pink-200 flex items-center justify-center text-2xl shrink-0 shadow-inner">
+                  🌸
+                </div>
+                <div>
+                  <p class="text-xs font-extrabold uppercase tracking-wider text-pink-500">Nama</p>
+                  <p class="font-display text-xl sm:text-2xl font-bold text-indigo-950">Jennifer Haha</p>
+                </div>
+              </div>
+
+              <!-- Item: Hobi -->
+              <div class="flex items-center gap-4 bg-white rounded-2xl p-3.5 shadow-sm border border-indigo-100">
+                <div class="w-12 h-12 rounded-2xl bg-sky-200 flex items-center justify-center text-2xl shrink-0 shadow-inner">
+                  🎮
+                </div>
+                <div>
+                  <p class="text-xs font-extrabold uppercase tracking-wider text-sky-600">Hobi</p>
+                  <p class="font-display text-xl sm:text-2xl font-bold text-indigo-950">Bermain game</p>
+                </div>
+              </div>
+
+              <!-- Item: Cita-cita -->
+              <div class="flex items-center gap-4 bg-white rounded-2xl p-3.5 shadow-sm border border-indigo-100">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-200 flex items-center justify-center text-2xl shrink-0 shadow-inner">
+                  📚
+                </div>
+                <div>
+                  <p class="text-xs font-extrabold uppercase tracking-wider text-amber-600">Cita-cita</p>
+                  <p class="font-display text-xl sm:text-2xl font-bold text-indigo-950">Guru</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-sm sm:text-base text-indigo-900/80 font-semibold leading-relaxed px-2">
+              "Bermimpi setinggi bintang di langit, belajar dengan gembira, dan berbagi ilmu yang bermanfaat seperti seorang guru yang menginspirasi!" 🌟
+            </p>
+
+            <div class="pt-1 flex flex-wrap gap-3">
+              <button onclick="navigateTo('galeri')" class="clay-btn clay-btn-sky px-5 py-2.5 text-sm sm:text-base font-bold">
+                <span>🎨</span><span>Intip Galeri Karya</span>
+              </button>
+              <button onclick="navigateTo('game')" class="clay-btn clay-btn-yellow px-5 py-2.5 text-sm sm:text-base font-bold">
+                <span>🎲</span><span>Main Monopoli WNI</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         HALAMAN 3: GALERI KARYA (3 KEGIATAN FAVORIT)
+         ====================================================================== -->
+    <section id="page-galeri" class="spa-page">
+      <div class="text-center mb-8">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-sky-200/90 text-sky-900 font-bold text-xs sm:text-sm mb-3 shadow">
+          🌠 Koleksi Momen Favorit
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold text-white drop-shadow-md">
+          Galeri Karya & Kegiatan 🎨
+        </h2>
+        <p class="text-indigo-100 font-semibold mt-2 max-w-xl mx-auto text-sm sm:text-base">
+          Tiga kegiatan seru yang selalu bikin hari terasa lebih cerah dan penuh senyuman!
+        </p>
+      </div>
+
+      <!-- Grid Responsif 3 Kartu Galeri -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Kartu 1: Memancing -->
+        <article class="clay-card clay-card-hover p-5 flex flex-col">
+          <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-sky-200 bg-slate-200 mb-4 shadow-inner">
+            <!-- GANTI FOTO: Letakkan file karya1.jpg (Memancing) di folder yang sama dengan index.html -->
+            <img
+              src="karya1.jpg"
+              alt="Kegiatan Memancing"
+              class="w-full h-full object-cover"
+              onerror="handleImageFallback(this)"
+            />
+            <div class="photo-fallback hidden w-full h-full bg-[#d1d5db] text-slate-600 flex flex-col items-center justify-center text-center p-4 font-bold text-sm">
+              <span class="text-3xl mb-1">🎣</span>
+              <span>Foto belum ditambahkan</span>
+            </div>
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-sky-300/95 text-sky-950 font-bold text-xs shadow">
+              🎣 Santai & Seru
+            </span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-indigo-950 mb-2">Memancing</h3>
+          <p class="text-indigo-900/75 font-semibold text-sm sm:text-base leading-relaxed flex-grow">
+            Menikmati suasana tenang sambil menunggu kail bergetar. Melatih kesabaran sekaligus bikin hati adem banget!
+          </p>
+        </article>
+
+        <!-- Kartu 2: Membaca Buku -->
+        <article class="clay-card clay-card-hover p-5 flex flex-col">
+          <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-yellow-200 bg-slate-200 mb-4 shadow-inner">
+            <!-- GANTI FOTO: Letakkan file karya2.jpg (Membaca Buku) di folder yang sama dengan index.html -->
+            <img
+              src="karya2.jpg"
+              alt="Kegiatan Membaca Buku"
+              class="w-full h-full object-cover"
+              onerror="handleImageFallback(this)"
+            />
+            <div class="photo-fallback hidden w-full h-full bg-[#d1d5db] text-slate-600 flex flex-col items-center justify-center text-center p-4 font-bold text-sm">
+              <span class="text-3xl mb-1">📖</span>
+              <span>Foto belum ditambahkan</span>
+            </div>
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-yellow-300/95 text-amber-950 font-bold text-xs shadow">
+              📚 Jendela Dunia
+            </span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-indigo-950 mb-2">Membaca Buku</h3>
+          <p class="text-indigo-900/75 font-semibold text-sm sm:text-base leading-relaxed flex-grow">
+            Menjelajahi berbagai cerita dan ilmu baru lewat lembaran buku—bekal seru menuju cita-cita menjadi guru!
+          </p>
+        </article>
+
+        <!-- Kartu 3: Makan Makanan Manis -->
+        <article class="clay-card clay-card-hover p-5 flex flex-col">
+          <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-pink-200 bg-slate-200 mb-4 shadow-inner">
+            <!-- GANTI FOTO: Letakkan file karya3.jpg (Makan Makanan Manis) di folder yang sama dengan index.html -->
+            <img
+              src="karya3.jpg"
+              alt="Kegiatan Makan Makanan Manis"
+              class="w-full h-full object-cover"
+              onerror="handleImageFallback(this)"
+            />
+            <div class="photo-fallback hidden w-full h-full bg-[#d1d5db] text-slate-600 flex flex-col items-center justify-center text-center p-4 font-bold text-sm">
+              <span class="text-3xl mb-1">🧁</span>
+              <span>Foto belum ditambahkan</span>
+            </div>
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-pink-300/95 text-pink-950 font-bold text-xs shadow">
+              🍰 Mood Booster
+            </span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-indigo-950 mb-2">Makan Makanan Manis</h3>
+          <p class="text-indigo-900/75 font-semibold text-sm sm:text-base leading-relaxed flex-grow">
+            Kue lembut, es krim, donat, atau cokelat hangat—semua makanan manis adalah sumber energi kebahagiaan instan!
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         HALAMAN 4: MINI GAME — MONOPOLI WNI SIMULATOR
+         ====================================================================== -->
+    <section id="page-game" class="spa-page">
+      <div class="text-center mb-6">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-yellow-200/95 text-amber-950 font-bold text-xs sm:text-sm mb-2 shadow">
+          🇮🇩 Edisi Bertahan Hidup +62
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold text-white drop-shadow-md">
+          Monopoli WNI Simulator 🎲
+        </h2>
+        <p class="text-indigo-100 font-semibold mt-1 text-xs sm:text-base max-w-2xl mx-auto">
+          Kumpulkan saldo hingga <strong>Rp 250.000</strong> (Sultan WNI) atau bikin lawan bangkrut duluan!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- PAPAN PERMAINAN (16 PETAK MENGELILINGI AREA TENGAH) -->
+        <div class="lg:col-span-8">
+          <div class="monopoly-board" id="monopolyBoard">
+            <!-- 16 Petak akan di-render oleh JavaScript -->
+
+            <!-- Area Tengah Papan (Dadu & Kontrol) -->
+            <div class="board-center">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 font-bold text-[11px] sm:text-xs mb-2">
+                <span id="turnBadgeDot" class="w-2.5 h-2.5 rounded-full bg-pink-500 animate-pulse"></span>
+                <span id="turnIndicator">Giliran: Kamu (Jennifer)</span>
+              </div>
+
+              <!-- Dadu Beranimasi -->
+              <div id="diceDisplay" class="dice-box my-1.5 sm:my-2" aria-live="polite">🎲</div>
+
+              <p id="centerEventText" class="text-[11px] sm:text-xs font-bold text-indigo-900/80 min-h-[2.2rem] flex items-center justify-center px-1 leading-tight">
+                Klik Lempar Dadu untuk mulai bertahan hidup!
+              </p>
+
+              <!-- Tombol Lempar Dadu -->
+              <button id="rollDiceBtn" onclick="playerRollDice()" class="clay-btn clay-btn-yellow px-4 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-base font-bold mt-2">
+                <span>🎲</span>
+                <span>Lempar Dadu</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL STATUS PEMAIN, LOG KEJADIAN & KONTROL -->
+        <div class="lg:col-span-4 space-y-4">
+          <!-- Kartu Status Pemain & Bot -->
+          <div class="clay-card p-4 sm:p-5 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display text-lg font-bold text-indigo-950">Status Dompet 👛</h3>
+              <button id="soundToggleBtn" onclick="toggleSound()" class="px-3 py-1 rounded-full bg-indigo-100 hover:bg-indigo-200 text-indigo-800 font-bold text-xs transition">
+                🔊 Suara: ON
+              </button>
+            </div>
+
+            <!-- Status Pemain (Kamu) -->
+            <div id="playerCard" class="rounded-2xl p-3 bg-pink-50 border-2 border-pink-300 transition">
+              <div class="flex items-center justify-between mb-1">
+                <div class="flex items-center gap-2">
+                  <span class="w-7 h-7 rounded-full bg-pink-400 text-white flex items-center justify-center text-sm shadow">👩‍🚀</span>
+                  <span class="font-bold text-indigo-950 text-sm">Kamu (Jennifer)</span>
+                </div>
+                <span id="playerMoney" class="font-display font-bold text-base sm:text-lg text-pink-700">Rp 100.000</span>
+              </div>
+              <div class="w-full h-2.5 bg-pink-200/70 rounded-full overflow-hidden">
+                <div id="playerBar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 rounded-full transition-all duration-500" style="width: 40%;"></div>
+              </div>
+            </div>
+
+            <!-- Status Bot (Budi WNI) -->
+            <div id="botCard" class="rounded-2xl p-3 bg-sky-50 border-2 border-sky-200 transition">
+              <div class="flex items-center justify-between mb-1">
+                <div class="flex items-center gap-2">
+                  <span class="w-7 h-7 rounded-full bg-sky-400 text-white flex items-center justify-center text-sm shadow">🤖</span>
+                  <span class="font-bold text-indigo-950 text-sm">Bot (Budi +62)</span>
+                </div>
+                <span id="botMoney" class="font-display font-bold text-base sm:text-lg text-sky-700">Rp 100.000</span>
+              </div>
+              <div class="w-full h-2.5 bg-sky-200/70 rounded-full overflow-hidden">
+                <div id="botBar" class="h-full bg-gradient-to-r from-sky-400 to-blue-500 rounded-full transition-all duration-500" style="width: 40%;"></div>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center text-xs font-bold text-indigo-800/70 pt-1">
+              <span>🎯 Target Menang: Rp 250.000</span>
+              <button onclick="resetGame()" class="text-indigo-600 hover:text-indigo-900 underline">
+                Reset Game
+              </button>
+            </div>
+          </div>
+
+          <!-- Kartu Log Kejadian (Event Log) -->
+          <div class="clay-card p-4 sm:p-5">
+            <h3 class="font-display text-lg font-bold text-indigo-950 mb-2 flex items-center gap-2">
+              <span>📜</span><span>Log Kejadian WNI</span>
+            </h3>
+            <ul id="eventLog" class="space-y-2 max-h-56 overflow-y-auto pr-1 custom-scroll text-xs sm:text-sm font-semibold text-indigo-900">
+              <li class="p-2.5 rounded-xl bg-indigo-50 border border-indigo-100">
+                🌟 Selamat datang di Monopoli WNI! Saldo awal masing-masing <strong>Rp 100.000</strong>.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       MODAL MENANG / BANGKRUT (PENGGANTI ALERT)
+       ======================================================================== -->
+  <div id="gameOverModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-indigo-950/75 backdrop-blur-sm p-4">
+    <div class="clay-card p-6 sm:p-8 max-w-md w-full text-center space-y-4">
+      <div id="modalEmoji" class="text-6xl animate-bounce">🏆</div>
+      <h3 id="modalTitle" class="font-display text-3xl font-bold text-indigo-950">Selamat, Sultan WNI!</h3>
+      <p id="modalDesc" class="text-indigo-900/80 font-semibold text-sm sm:text-base">
+        Kamu berhasil bertahan hidup dari parkir liar dan tanggal kembar!
+      </p>
+      <div class="pt-2">
+        <button onclick="resetGame()" class="clay-btn clay-btn-mint px-7 py-3 text-lg font-bold w-full">
+          <span>🔄</span>
+          <span>Main Lagi</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER RINGKAS
+       ======================================================================== -->
+  <footer class="relative z-10 text-center pb-8 px-4 text-indigo-200/80 text-xs sm:text-sm font-semibold">
+    ✨ Dibuat dengan penuh bintang & semangat kosmik untuk <strong>Jennifer Haha</strong> ✨
+  </footer>
+
+  <!-- ========================================================================
+       JAVASCRIPT: SPA NAVIGATION, STARFIELD, FALLBACK FOTO & MONOPOLI WNI
+       ======================================================================== -->
+  <script>
+    /* ========================================================================
+       1. FALLBACK FOTO OTOMATIS (WAJIB)
+       ======================================================================== */
+    function handleImageFallback(imgEl) {
+      if (!imgEl) return;
+      imgEl.style.display = 'none';
+      const fallback = imgEl.nextElementSibling;
+      if (fallback && fallback.classList.contains('photo-fallback')) {
+        fallback.classList.remove('hidden');
+        fallback.style.display = 'flex';
+      }
+    }
+
+    // Pastikan jika gambar sudah gagal dimuat sebelum event terpasang, fallback tetap muncul
+    function verifyAllImages() {
+      const images = document.querySelectorAll('img');
+      images.forEach((img) => {
+        if (img.complete && img.naturalWidth === 0) {
+          handleImageFallback(img);
+        }
+      });
+    }
+
+    /* ========================================================================
+       2. GENERATOR BINTANG BERKELIP DI LATAR BELAKANG
+       ======================================================================== */
+    function generateStarField() {
+      const container = document.getElementById('starField');
+      if (!container) return;
+      const starCount = window.innerWidth < 640 ? 35 : 65;
+
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'twinkle-star';
+        const size = Math.random() * 4 + 2;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.setProperty('--dur', `${(Math.random() * 2.5 + 1.5).toFixed(2)}s`);
+        star.style.setProperty('--delay', `${(Math.random() * 3).toFixed(2)}s`);
+        container.appendChild(star);
+      }
+    }
+
+    /* ========================================================================
+       3. NAVIGASI SPA (SINGLE PAGE APPLICATION) 4 HALAMAN TANPA RELOAD
+       ======================================================================== */
+    function navigateTo(pageId) {
+      const pages = document.querySelectorAll('.spa-page');
+      const navButtons = document.querySelectorAll('.nav-btn');
+
+      pages.forEach((page) => {
+        if (page.id === `page-${pageId}`) {
+          page.classList.add('active');
+        } else {
+          page.classList.remove('active');
+        }
+      });
+
+      navButtons.forEach((btn) => {
+        if (btn.getAttribute('data-page') === pageId) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ========================================================================
+       4. EFEK SUARA SEDERHANA (WEB AUDIO API TANPA FILE EKSTERNAL)
+       ======================================================================== */
+    let soundEnabled = true;
+    let audioCtx = null;
+
+    function playTone(freq, duration = 0.12, type = 'sine', volume = 0.08) {
+      if (!soundEnabled) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(volume, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (err) {
+        // Abaikan jika browser memblokir audio
+      }
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const btn = document.getElementById('soundToggleBtn');
+      if (btn) {
+        btn.textContent = soundEnabled ? '🔊 Suara: ON' : '🔇 Suara: OFF';
+      }
+    }
+
+    /* ========================================================================
+       5. MINI GAME: MONOPOLI WNI SIMULATOR (16 PETAK, PEMAIN VS BOT)
+       ======================================================================== */
+    const TARGET_WIN_MONEY = 250000;
+    const INITIAL_MONEY = 100000;
+    const PASS_START_BONUS = 40000;
+
+    // 16 Petak khas kehidupan WNI dengan posisi grid 5x5 mengelilingi area tengah
+    const BOARD_TILES = [
+      { id: 0,  col: 1, row: 1, icon: '🏁', name: 'Start (Gajian)',  amount: 40000,  bg: 'bg-emerald-200', text: 'Gajian cair! Dompet langsung senyum lebar.' },
+      { id: 1,  col: 2, row: 1, icon: '🥟', name: 'Beli Gorengan',   amount: -15000, bg: 'bg-amber-100',   text: 'Niat beli 2 bakwan, pulang bawa sekantong penuh.' },
+      { id: 2,  col: 3, row: 1, icon: '🅿️', name: 'Parkir Liar',     amount: -10000, bg: 'bg-rose-200',    text: 'Pas datang gak ada, pas mau pulang langsung "Priiit!"' },
+      { id: 3,  col: 4, row: 1, icon: '☕', name: 'Warkop',          amount: -20000, bg: 'bg-orange-100',  text: 'Nongkrong pesan mie telor + es teh manis jumbo.' },
+      { id: 4,  col: 5, row: 1, icon: '🚗', name: 'Kena Macet',      amount: -15000, bg: 'bg-red-200',     text: 'Macet total 2 jam, bensin habis sambil dengar klakson.' },
+
+      { id: 5,  col: 5, row: 2, icon: '🧧', name: 'Dapat THR',       amount: 45000,  bg: 'bg-yellow-200',  text: 'Alhamdulillah! Amplop THR mendarat dengan selamat.' },
+      { id: 6,  col: 5, row: 3, icon: '🌬️', name: 'Masuk Angin',     amount: -20000, bg: 'bg-sky-200',     text: 'Kebanyakan begadang, beli obat herbal & kerokan.' },
+      { id: 7,  col: 5, row: 4, icon: '🛒', name: 'Tanggal Kembar',  amount: -35000, bg: 'bg-pink-200',    text: 'Khilaf checkout promo gratis ongkir 11.11!' },
+
+      { id: 8,  col: 5, row: 5, icon: '🎁', name: 'Dana Darurat',    amount: 0,      bg: 'bg-purple-200',  text: 'Kotak Nasib WNI!', isRandom: true },
+      { id: 9,  col: 4, row: 5, icon: '🏘️', name: 'Arisan RT',       amount: 35000,  bg: 'bg-teal-200',    text: 'Hore! Namamu keluar saat kocokan arisan RT!' },
+      { id: 10, col: 3, row: 5, icon: '🚓', name: 'Kena Tilang',     amount: -35000, bg: 'bg-rose-200',    text: 'Lupa bawa STNK pas razia, bayar denda tilang.' },
+      { id: 11, col: 2, row: 5, icon: '🧋', name: 'Jajan Boba',      amount: -18000, bg: 'bg-fuchsia-200', text: 'Self reward es boba manis biar mood balik lagi.' },
+      { id: 12, col: 1, row: 5, icon: '👖', name: 'Nemu Uang',       amount: 25000,  bg: 'bg-lime-200',    text: 'Rezeki nomplok! Nemu lembaran uang di saku celana lama.' },
+
+      { id: 13, col: 1, row: 4, icon: '📱', name: 'Kuota Habis',     amount: -25000, bg: 'bg-indigo-200',  text: 'Lagi seru mabar malah putus, beli paket data darurat.' },
+      { id: 14, col: 1, row: 3, icon: '💼', name: 'Uang Lembur',     amount: 35000,  bg: 'bg-emerald-200', text: 'Kerja keras terbayar! Dapat bonus lemburan.' },
+      { id: 15, col: 1, row: 2, icon: '🎂', name: 'Patungan Kado',   amount: -20000, bg: 'bg-amber-200',   text: 'Solidaritas tinggi, ikut patungan kado ulang tahun teman.' }
+    ];
+
+    const RANDOM_EVENTS = [
+      { amount: 30000, text: 'Dapat cashback e-wallet Rp 30.000! Lumayan buat jajan.' },
+      { amount: -25000, text: 'Ban motor bocor pas hujan, tambal ban Rp 25.000.' },
+      { amount: 40000, text: 'Menang giveaway komentar tercepat Rp 40.000!' },
+      { amount: -20000, text: 'Traktir teman es campur habis Rp 20.000.' }
+    ];
+
+    const DICE_FACES = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+
+    let gameState = {
+      player: { name: 'Kamu (Jennifer)', pos: 0, money: INITIAL_MONEY, isBot: false },
+      bot:    { name: 'Bot (Budi +62)',  pos: 0, money: INITIAL_MONEY, isBot: true },
+      turn: 'player', // 'player' | 'bot'
+      isBusy: false,
+      gameOver: false
+    };
+
+    function formatRupiah(num) {
+      const sign = num < 0 ? '-' : '';
+      return `${sign}Rp ${Math.abs(num).toLocaleString('id-ID')}`;
+    }
+
+    function renderBoard() {
+      const board = document.getElementById('monopolyBoard');
+      if (!board) return;
+
+      // Hapus petak lama jika ada (kecuali .board-center)
+      board.querySelectorAll('.board-tile').forEach((el) => el.remove());
+
+      BOARD_TILES.forEach((tile) => {
+        const tileEl = document.createElement('div');
+        tileEl.id = `tile-${tile.id}`;
+        tileEl.className = `board-tile ${tile.bg}`;
+        tileEl.style.gridColumn = tile.col;
+        tileEl.style.gridRow = tile.row;
+
+        const priceLabel = tile.isRandom
+          ? 'Acak 🎲'
+          : tile.amount > 0
+            ? `+${(tile.amount / 1000)}rb`
+            : `${(tile.amount / 1000)}rb`;
+
+        const priceColor = tile.isRandom
+          ? 'text-purple-800'
+          : tile.amount > 0
+            ? 'text-emerald-800'
+            : 'text-rose-700';
+
+        tileEl.innerHTML = `
+          <span class="text-base sm:text-xl leading-none">${tile.icon}</span>
+          <span class="font-display text-[9px] sm:text-[11px] font-bold text-indigo-950 leading-tight px-0.5">${tile.name}</span>
+          <span class="text-[9px] sm:text-[10px] font-extrabold ${priceColor}">${priceLabel}</span>
+          <div class="pawn-container" id="pawns-${tile.id}"></div>
+        `;
+        board.appendChild(tileEl);
+      });
+
+      renderPawns();
+      updateScoreUI();
+    }
+
+    function renderPawns() {
+      BOARD_TILES.forEach((tile) => {
+        const container = document.getElementById(`pawns-${tile.id}`);
+        if (container) container.innerHTML = '';
+      });
+
+      const playerContainer = document.getElementById(`pawns-${gameState.player.pos}`);
+      if (playerContainer) {
+        const pEl = document.createElement('div');
+        pEl.className = 'pawn pawn-player';
+        pEl.title = 'Kamu (Jennifer)';
+        pEl.textContent = '👩‍🚀';
+        playerContainer.appendChild(pEl);
+      }
+
+      const botContainer = document.getElementById(`pawns-${gameState.bot.pos}`);
+      if (botContainer) {
+        const bEl = document.createElement('div');
+        bEl.className = 'pawn pawn-bot';
+        bEl.title = 'Bot (Budi +62)';
+        bEl.textContent = '🤖';
+        botContainer.appendChild(bEl);
+      }
+    }
+
+    function updateScoreUI() {
+      const pMoney = document.getElementById('playerMoney');
+      const bMoney = document.getElementById('botMoney');
+      const pBar = document.getElementById('playerBar');
+      const bBar = document.getElementById('botBar');
+      const turnText = document.getElementById('turnIndicator');
+      const turnDot = document.getElementById('turnBadgeDot');
+      const rollBtn = document.getElementById('rollDiceBtn');
+      const pCard = document.getElementById('playerCard');
+      const bCard = document.getElementById('botCard');
+
+      if (pMoney) pMoney.textContent = formatRupiah(gameState.player.money);
+      if (bMoney) bMoney.textContent = formatRupiah(gameState.bot.money);
+
+      const pPct = Math.max(0, Math.min(100, (gameState.player.money / TARGET_WIN_MONEY) * 100));
+      const bPct = Math.max(0, Math.min(100, (gameState.bot.money / TARGET_WIN_MONEY) * 100));
+      if (pBar) pBar.style.width = `${pPct}%`;
+      if (bBar) bBar.style.width = `${bPct}%`;
+
+      if (gameState.turn === 'player') {
+        if (turnText) turnText.textContent = 'Giliran: Kamu (Jennifer)';
+        if (turnDot) turnDot.className = 'w-2.5 h-2.5 rounded-full bg-pink-500 animate-pulse';
+        if (pCard) pCard.classList.add('ring-2', 'ring-pink-400');
+        if (bCard) bCard.classList.remove('ring-2', 'ring-sky-400');
+      } else {
+        if (turnText) turnText.textContent = 'Giliran: Bot (Budi +62)';
+        if (turnDot) turnDot.className = 'w-2.5 h-2.5 rounded-full bg-sky-500 animate-pulse';
+        if (bCard) bCard.classList.add('ring-2', 'ring-sky-400');
+        if (pCard) pCard.classList.remove('ring-2', 'ring-pink-400');
+      }
+
+      if (rollBtn) {
+        rollBtn.disabled = gameState.isBusy || gameState.turn !== 'player' || gameState.gameOver;
+      }
+    }
+
+    function addEventLog(message, type = 'neutral') {
+      const logList = document.getElementById('eventLog');
+      if (!logList) return;
+
+      const styles = {
+        good: 'bg-emerald-50 border-emerald-200 text-emerald-950',
+        bad: 'bg-rose-50 border-rose-200 text-rose-950',
+        neutral: 'bg-indigo-50 border-indigo-100 text-indigo-950'
+      };
+
+      const li = document.createElement('li');
+      li.className = `p-2.5 rounded-xl border ${styles[type] || styles.neutral}`;
+      li.innerHTML = message;
+      logList.prepend(li);
+
+      // Batasi maksimal 25 log agar tetap ringan
+      while (logList.children.length > 25) {
+        logList.removeChild(logList.lastChild);
+      }
+    }
+
+    function sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    async function playerRollDice() {
+      if (gameState.isBusy || gameState.turn !== 'player' || gameState.gameOver) return;
+      await executeTurn('player');
+    }
+
+    async function executeTurn(who) {
+      gameState.isBusy = true;
+      updateScoreUI();
+
+      const actor = gameState[who];
+      const diceEl = document.getElementById('diceDisplay');
+      const centerText = document.getElementById('centerEventText');
+
+      // Animasi lempar dadu
+      if (diceEl) diceEl.classList.add('dice-rolling');
+      if (centerText) centerText.textContent = `${actor.name} melempar dadu...`;
+
+      let finalRoll = 1;
+      for (let i = 0; i < 8; i++) {
+        finalRoll = Math.floor(Math.random() * 6) + 1;
+        if (diceEl) diceEl.textContent = DICE_FACES[finalRoll - 1];
+        playTone(300 + i * 35, 0.05, 'triangle', 0.05);
+        await sleep(80);
+      }
+
+      if (diceEl) diceEl.classList.remove('dice-rolling');
+      if (centerText) centerText.textContent = `${actor.name} dapat angka ${finalRoll}!`;
+      playTone(580, 0.12, 'sine', 0.08);
+      await sleep(260);
+
+      // Gerakkan pion satu per satu langkah
+      for (let step = 0; step < finalRoll; step++) {
+        actor.pos = (actor.pos + 1) % BOARD_TILES.length;
+        renderPawns();
+        playTone(420 + step * 40, 0.06, 'sine', 0.06);
+
+        // Jika melewati Start (petak 0) dan bukan langkah terakhir di petak 0
+        if (actor.pos === 0 && step < finalRoll - 1) {
+          actor.money += PASS_START_BONUS;
+          addEventLog(`🏁 <strong>${actor.name}</strong> melewati Start (Gajian) dan dapat <strong>+${formatRupiah(PASS_START_BONUS)}</strong>!`, 'good');
+          updateScoreUI();
+        }
+        await sleep(220);
+      }
+
+      // Highlight petak tujuan
+      const landedTile = BOARD_TILES[actor.pos];
+      const tileEl = document.getElementById(`tile-${landedTile.id}`);
+      if (tileEl) {
+        tileEl.classList.add('tile-highlight');
+        setTimeout(() => tileEl.classList.remove('tile-highlight'), 1100);
+      }
+
+      // Hitung efek petak
+      let delta = landedTile.amount;
+      let eventDesc = landedTile.text;
+
+      if (landedTile.isRandom) {
+        const picked = RANDOM_EVENTS[Math.floor(Math.random() * RANDOM_EVENTS.length)];
+        delta = picked.amount;
+        eventDesc = picked.text;
+      }
+
+      actor.money += delta;
+      const signText = delta >= 0 ? `+${formatRupiah(delta)}` : formatRupiah(delta);
+      const logType = delta >= 0 ? 'good' : 'bad';
+
+      if (delta >= 0) {
+        playTone(660, 0.14, 'sine', 0.09);
+        setTimeout(() => playTone(880, 0.18, 'sine', 0.08), 110);
+      } else {
+        playTone(260, 0.18, 'sawtooth', 0.06);
+      }
+
+      if (centerText) {
+        centerText.textContent = `${landedTile.icon} ${landedTile.name} (${signText})`;
+      }
+
+      addEventLog(
+        `${landedTile.icon} <strong>${actor.name}</strong> singgah di <strong>${landedTile.name}</strong>: ${eventDesc} (<strong>${signText}</strong>)`,
+        logType
+      );
+
+      updateScoreUI();
+
+      // Cek kondisi menang atau bangkrut
+      if (checkGameOver()) {
+        gameState.isBusy = false;
+        updateScoreUI();
+        return;
+      }
+
+      // Ganti giliran
+      await sleep(700);
+      gameState.turn = who === 'player' ? 'bot' : 'player';
+      gameState.isBusy = false;
+      updateScoreUI();
+
+      // Jika giliran Bot, jalankan otomatis
+      if (gameState.turn === 'bot' && !gameState.gameOver) {
+        await sleep(650);
+        await executeTurn('bot');
+      }
+    }
+
+    function checkGameOver() {
+      const p = gameState.player;
+      const b = gameState.bot;
+
+      if (p.money >= TARGET_WIN_MONEY) {
+        showGameOverModal('🏆', 'Kamu Menang! Sultan WNI!', `Saldo kamu tembus ${formatRupiah(p.money)}! Kamu resmi lolos ujian kehidupan +62 dengan gemilang!`);
+        return true;
+      }
+      if (b.money <= 0) {
+        showGameOverModal('🎉', 'Kamu Menang! Bot Bangkrut!', `Bot (Budi +62) kehabisan saldo (${formatRupiah(b.money)}) karena kebanyakan jajan & kena tilang!`);
+        return true;
+      }
+      if (p.money <= 0) {
+        showGameOverModal('💸', 'Yah, Dompet Kosong!', `Saldomu habis (${formatRupiah(p.money)}). Jangan menyerah, ayo atur strategi lagi dan hindari parkir liar!`);
+        return true;
+      }
+      if (b.money >= TARGET_WIN_MONEY) {
+        showGameOverModal('🤖', 'Bot Budi Jadi Sultan!', `Bot berhasil mengumpulkan ${formatRupiah(b.money)} lebih dulu. Ayo balas di ronde berikutnya!`);
+        return true;
+      }
+      return false;
+    }
+
+    function showGameOverModal(emoji, title, desc) {
+      gameState.gameOver = true;
+      const modal = document.getElementById('gameOverModal');
+      document.getElementById('modalEmoji').textContent = emoji;
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDesc').textContent = desc;
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function resetGame() {
+      const modal = document.getElementById('gameOverModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+
+      gameState = {
+        player: { name: 'Kamu (Jennifer)', pos: 0, money: INITIAL_MONEY, isBot: false },
+        bot:    { name: 'Bot (Budi +62)',  pos: 0, money: INITIAL_MONEY, isBot: true },
+        turn: 'player',
+        isBusy: false,
+        gameOver: false
+      };
+
+      const diceEl = document.getElementById('diceDisplay');
+      const centerText = document.getElementById('centerEventText');
+      const logList = document.getElementById('eventLog');
+
+      if (diceEl) diceEl.textContent = '🎲';
+      if (centerText) centerText.textContent = 'Klik Lempar Dadu untuk mulai bertahan hidup!';
+      if (logList) {
+        logList.innerHTML = `
+          <li class="p-2.5 rounded-xl bg-indigo-50 border border-indigo-100">
+            🔄 Permainan baru dimulai! Saldo awal masing-masing <strong>Rp 100.000</strong>.
+          </li>
+        `;
+      }
+
+      renderPawns();
+      updateScoreUI();
+    }
+
+    /* ========================================================================
+       6. INISIALISASI SAAT HALAMAN SELESAI DIMUAT
+       ======================================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      generateStarField();
+      renderBoard();
+      verifyAllImages();
+    });
+  </script>
+</body>
+</html>
